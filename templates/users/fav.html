@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    
+<div>
+    <p><a type="button" class="btn btn-outline-dark" href="/drinks/add-drink">Create your own drink!</a></p>
+</div>
+<div>
+    <a href="/" class="btn btn-outline-dark">Search Here</a>
+</div>
+{% if adds %}
+<h6 class="text display-6">Here's your list of favs</h6>
+<div class="row align-items-start">
+    <p></p>
+    <div class="row">
+
+        {% for drink in adds %}
+        <div class="col">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="{{ drink.strDrinkThumb }}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ drink.strDrink }}</h4>
+                </div>
+                <div class="card-footer">
+                    <a href="/drinks/{{ drink.idDrink }}" class="btn btn-outline-secondary">Check Out Recipe</a>
+                    <form action="/users/{{user.id}}/delete" method="POST">
+                        <button class="btn btn-sm btn-outline-danger " class="btn btn-secondary btn-sm"
+                            data-id="{{user.id}}">delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% else %}
+<div class="container px-4">
+<div class="row gx-5">
+    <div class="col">
+    <h1 class="display-3">Hi, {{ g.user.username }}</h1>
+    <p class="lead">It looks like you haven't added any favs</p>
+    
+    </div>
+</div>
+</div>
+{% endif %}
+
+{% if org_drink %}
+<h6 class="text display-6">Your drink creations</h6>
+<div class="row align-items-start">
+    <p></p>
+    <div class="row">
+
+        {% for drink in org_drink %}
+        <div class="col">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="{{ drink.strDrinkThumb }}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ drink.name }}</h4>
+                </div>
+                <div class="card-footer">
+                    <a href="/user/original/{{drink.id}}" class="btn btn-outline-secondary">Check Out Recipe</a>
+                    <form action="/drinks/{{drink.id}}/delete" method="POST">
+                        <button class="btn btn-sm btn-outline-danger " class="btn btn-secondary btn-sm"
+                            data-id="{{drink.id}}">delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% else %}
+
+<div class="container px-4">
+<div class="row gx-5">
+    <div class="col">
+<p class="lead">It looks like you haven't created any drinks</p>
+</div>
+</div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}

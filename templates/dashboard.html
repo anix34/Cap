@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard</h1>
+    
+    <!-- Display user-specific content or dashboard features here -->
+    
+    <p>This is your dashboard page. You can add any content or features specific to the logged-in user here.</p>
+    
+    <!-- Example: Display the username -->
+    {% if current_user %}
+        <p>Logged in as: {{ current_user.username }}</p>
+    {% endif %}
+    
+    <!-- Example: Logout button -->
+    <form action="{{ url_for('logout') }}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

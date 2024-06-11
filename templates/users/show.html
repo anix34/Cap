@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab"
+    aria-controls="contact" aria-selected="false"><a class="nav-link" href="/users/{{ g.user.id }}/fav">{{
+        g.user.username
+        }}'s Drinks</a></button>
+<div class="row justify-content-center m-5">
+    <p>Look below to update your username or email address.</p>
+    <div class="col-md-7 col-lg-5">
+        <h2 class="join-message">Update Form:</h2>
+        <form method="POST" id="user_form">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+            {{ field(placeholder=field.label.text, class="form-control m-3") }}
+            {% endfor %}
+            <button class="btn btn-primary btn-block">Update</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

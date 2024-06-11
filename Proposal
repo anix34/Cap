@@ -1,0 +1,28 @@
+# Capstone Project 1 - Mixology
+
+1. What goal will your website be designed to achieve?  
+   This website is meant to facilitate user's access and navigation to the cocktaildb API to find both alcoholic and non-alcoholic mixed drink recipes. Users can create a basic profile that allows them to bookmark recipes.
+2. What kind of users will visit your site? In other words, what is the demographic of your users?  
+   Mixology enthusiasts for cocktails and mocktails.
+3. What data do you plan on using? You may have not picked your actual API yet, which is fine, just outline what kind of data you would like it to contain.  
+   Data from the cocktaildb open API:  
+   https://www.thecocktaildb.com/
+4. In brief, outline your approach to creating your project (knowing that you may not know everything in advance and that these details might change later). Answer questions like the ones below, but feel free to add more information:
+   1. What does your database schema look like?  
+      mixology schema.png
+   2. What kinds of issues might you run into with your API?  
+      Some drink recipes only offer English instructions.  
+      Usernames may contain vulgarity, so profanity filters are needed.    
+   3. Is there any sensitive information you need to secure?  
+      The users' passwords have to be hashed / encrypted
+   4. What functionality will your app include?  
+      Users can bookmark recipes. Recipes can be displayed in different languages, if the API provides it.
+   5. What will the user flow look like?  
+      After logging in, drink recipe pages will display a bookmark button beside the recipe title.
+   6. What features make your site more than CRUD? Do you have any stretch goals?  
+      Users can choose whether to display their bookmarks on their profile, or choose to make their profile private. 
+      Goals:
+      1. Allow users to submit their own recipes. This would include profanity filters for the titles.
+      2. Add new ingredients and recipes not present in thecocktaildb API.
+      3. Users can comment on recipe pages, also with profanity filtering. Users comment with a display name of their choosing, so as to keep their usernames private.
+      4. Users can access and clear their private search history.

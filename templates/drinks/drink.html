@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if org_drink.name%}
+<h1 id="drink" class="display-3">{{org_drink.name}}</h1>
+<div>
+    <div class="row">
+        <div class="col-4">
+            <div class="h3 p-3">Ingredients</div>
+            <ul class="list-group list-group-flush">
+
+                {% if org_drink.ingredient1%}
+                <li class="list-group-item"> {{org_drink.ingredient1}}</li>
+                {% endif %}
+                {% if org_drink.ingredient2 %}
+                <li class="list-group-item"> {{org_drink.ingredient2}} </li>
+                {% endif %}
+                {% if org_drink.ingredient3 %}
+                <li class="list-group-item"> {{org_drink.ingredient3}} </li>
+                {% endif %}
+                {% if org_drink.ingredient4 %}
+                <li class="list-group-item"> {{org_drink.ingredient4}} </li>
+                {% endif %}
+                {% if org_drink.ingredient5 %}
+                <li class="list-group-item"> {{org_drink.ingredient5}} </li>
+                {% endif %}
+
+            </ul>
+
+            {% endif %}
+            <div>
+                {% if org_drink.instructions%}
+                <div class="h3 p-3">Instructions</div>
+                <p class="p-3">{{org_drink.instructions}}</p>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock content %}

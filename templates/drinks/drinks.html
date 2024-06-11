@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div >
+    <p><a type="button" class="btn btn-outline-dark" href="/drinks/add-drink">Create your own drink!</a></p>
+    <h1 class="text-center display-3">drink List</h1>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <ul class="list-group-item  justify-content-between align-items-center" class="list-group">
+                {% for drink in org_drink %}
+                {% if g.user %}
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true"><a
+                                href="/user/original/{{drink.id}}">{{ drink.name }} </a></button>
+                    </li>
+
+                    <form action="/drinks/{{drink.id}}/delete" method="POST">
+                        <button class="btn btn-sm btn-danger " class="btn btn-secondary btn-sm"
+                            data-id="{{drink.id}}">delete</button>
+                    </form>
+
+                    {% endif %}
+
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

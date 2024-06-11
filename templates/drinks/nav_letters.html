@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div >
+
+    <h1 class="text-center display-3">Navigate drinks by the first letter</h1>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <ul class="list-group-item  justify-content-between align-items-center" class="list-group">
+
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    {%for l in alph%}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true"><a href="/letters/{{l}}">{{l}} drinks</a></button>
+                    </li>
+
+                    {% endfor %}
+
+
+                </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- {% if session['user_id'] %}
+
+<a class="nav-link" href="/drinks">
+    <h2>Go to Favs</h2>
+</a>
+
+{% else %}
+
+<h1>No favs for you. <a class="nav-link" href="/login">Login first</a> -->
+
+
+
+    {% endif %}
+
+    {% endblock %}
